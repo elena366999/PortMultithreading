@@ -14,7 +14,7 @@ public class Ship extends Thread {
     private int id;
     private List<Container> shipContainers;
 
-    Ship(int amountContainer, Dock dock, int id) {
+    public Ship(int amountContainer, Dock dock, int id) {
         if (amountContainer <= MAX_SHIP_CAPACITY && amountContainer > 0) {
             this.amountContainer = amountContainer;
             this.dock = dock;
@@ -27,7 +27,6 @@ public class Ship extends Thread {
         }
 
     }
-
 
     private void addCargo() {
         Container[] containers = new Container[MAX_SHIP_CAPACITY];
@@ -44,7 +43,6 @@ public class Ship extends Thread {
     public int getShipId() {
         return id;
     }
-
 
     public void unloadShip(){
         for (int i = 0; i < amountContainer; i++){
@@ -118,6 +116,6 @@ public class Ship extends Thread {
                 break;
             }
         System.out.println("Ship # "+ id + " is released");
-        dock.returnResource(pier);
+        dock.returnPier(pier);
     }
 }

@@ -4,7 +4,7 @@ package by.epam.training.bin;
 
 public class Main {
     public static void main(String... args){
-        Dock dock = Dock.createDock(Dock.PIER_NUMBER, 20);
+        Dock dock = Dock.createDock(20);
         System.out.println("Initial amount of containers in dock: "+ Dock.getContainersInDock().size());
        // Random random =  new Random();
 

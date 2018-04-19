@@ -24,10 +24,10 @@ public class Dock {
         return containersInDock;
     }
 
-    public static Dock createDock(int PIER_NUMBER, int initialContainersInDock) {
+    public static Dock createDock(int initialContainersInDock) {
         Dock dock = new Dock();
         if (initialContainersInDock > MAX_DOCK_CAPACITY || initialContainersInDock < 0) {
-            LOG.error("Attempting to create an object with invalid parameters");
+            LOG.error("Attempting to create a Dock object with invalid parameters");
             throw new IllegalArgumentException();
         } else {
             containersInDock = new CopyOnWriteArrayList<Container>();
@@ -41,7 +41,7 @@ public class Dock {
         }
     }
 
-    public void returnResource(Pier pier) {
+    public void returnPier(Pier pier) {
         Dock.getPiersInDock().add(pier);
         System.out.println("Pier #" + pier.getPierNumber()+ " is released");
         Dock.SEMAPHORE.release();
